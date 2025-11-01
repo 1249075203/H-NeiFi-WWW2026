@@ -30,7 +30,6 @@ def policy_gradient(D, model, optimizer,batch_size,device):
         rewards.append(temp_rewards)
 
     for i in range(len(obs)):
-        loss_all = torch.tensor([1e-6], dtype=torch.float32,device=device)
         discounted_ep_r = np.zeros_like(rewards[i])
         running_add = 0
         for t in reversed(range(0, len(rewards[i]))):
