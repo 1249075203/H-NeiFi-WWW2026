@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np                  # 数组
-import matplotlib.pyplot as plt     # 数据可视化的库
+import numpy as np                  
+import matplotlib.pyplot as plt     
 import random
 import time
 from arguments import Args
@@ -21,14 +21,14 @@ def calc_cluster_num(A):
     edge_lst = []
 
     for i in node_lst:
-        for j in node_lst:  # 结尾点
+        for j in node_lst:  
             # if i != j and j in agent_objs[i].workfor:
             if i != j and A[j, i] == 1:
                 edge_lst.append([i, j])
 
-    # 初始化前导节点 pre 数据结构
+
     pre = [i for i in range(len(node_lst))]
-    # 遍历边集合，合并
+   
     for e_i in range(len(edge_lst)):
         edge = edge_lst[e_i]
         join(
@@ -46,7 +46,7 @@ def calc_cluster_num(A):
 def find(x, pre):
     r = x
     while pre[r] != r:
-        r = pre[r]  # 找到前导节点
+        r = pre[r]  
     i = x
     while i != r:
         j = pre[i]
@@ -84,20 +84,20 @@ def compare_exp(exp_a, exp_b):
 
 def is_stable(agent_value, th=1e-2):
     C = np.zeros(shape=(args.agent_num, args.agent_num), dtype=np.float32)
-    for i in range(args.agent_num):  # 找每个i的邻居，并更新每个i
+    for i in range(args.agent_num): 
         for j in range(args.agent_num):
             if i != j:
                 distance = abs(agent_value[i] - agent_value[j])
-                if distance < r_c and distance>th:  # 在差值r_c以内的为邻居
+                if distance < r_c and distance>th:  
                     return False
     return True
-# num = 40        # 智能体个数
-# interval = 4       # 智能体的间隔
+# num = 40        
+# interval = 4      
 # exp_opinion = interval/2
 # exp_values = [exp_opinion for i in range(36)]
 r_c = args.r_c
-m = 1       # 共同邻居选几个
-beta = 0    # 远邻居可调参数
+m = 1      
+beta = 0   
 
 for episode in range(50):
     print(episode)
@@ -121,7 +121,7 @@ for episode in range(50):
 
     total_values = [agent_value]
 
-    # 更新
+   
     test_times = 0
     FLOPs = 0
     start_time = time.time()
@@ -267,7 +267,7 @@ for episode in range(50):
             FLOPs += 1
 
 
-        # 将临时变量赋值给原始的数组
+      
         agent_value = next_agent_value
         total_values.append(agent_value)
 
@@ -333,7 +333,7 @@ for episode in range(50):
     fig, ax = plt.subplots()
     # print("test_times:", test_times)
     # print("total_values:", len(total_values))
-    # test_times = test_times + test_times//5 + 1     # 补充1/5的时间
+    # test_times = test_times + test_times//5 + 1    
     test_times = 36
     plt.axis([0, test_times, 0, args.opinions_end])
     plt.xlabel("k")
@@ -362,12 +362,13 @@ for episode in range(50):
         ax.plot(list(range(test_times)), total_values_exp[:, i] , marker='o', ls='--', label='Experts')
     plt.savefig(f'result_CNR/{args.agent_num}-{args.opinions_end}-{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
     # episode = 1
-    # plt.savefig(f'C:\\Users\\blacksheep\\Desktop\\P\\CNR/eps/fig_agent_{episode}.eps',dpi=600,bbox_inches='tight',format='eps')
-    # plt.savefig(f'C:\\Users\\blacksheep\\Desktop\\P\\CNR/pdf/fig_agent_{episode}.pdf', dpi=600,bbox_inches='tight',format='pdf')
-    # plt.savefig(f'C:\\Users\\blacksheep\\Desktop\\P\\CNR/svg/fig_agent_{episode}.svg', dpi=600,bbox_inches='tight',format='svg')
-    # plt.savefig(f'C:\\Users\\blacksheep\\Desktop\\P\\CNR/jpg/fig_agent_{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
+    # plt.savefig(f'C:\\Users\\P\\CNR/eps/fig_agent_{episode}.eps',dpi=600,bbox_inches='tight',format='eps')
+    # plt.savefig(f'C:\\Users\\P\\CNR/pdf/fig_agent_{episode}.pdf', dpi=600,bbox_inches='tight',format='pdf')
+    # plt.savefig(f'C:\\Users\\P\\CNR/svg/fig_agent_{episode}.svg', dpi=600,bbox_inches='tight',format='svg')
+    # plt.savefig(f'C:\\Users\\P\\CNR/jpg/fig_agent_{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
     # plt.show()
     plt.clf()
     plt.cla()
     plt.close("all")
+
     print("====================================================")
