@@ -362,13 +362,14 @@ for episode in range(50):
         ax.plot(list(range(test_times)), total_values_exp[:, i] , marker='o', ls='--', label='Experts')
     plt.savefig(f'result_CNR/{args.agent_num}-{args.opinions_end}-{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
     # episode = 1
-    # plt.savefig(f'C:\\Users\\P\\CNR/eps/fig_agent_{episode}.eps',dpi=600,bbox_inches='tight',format='eps')
-    # plt.savefig(f'C:\\Users\\P\\CNR/pdf/fig_agent_{episode}.pdf', dpi=600,bbox_inches='tight',format='pdf')
-    # plt.savefig(f'C:\\Users\\P\\CNR/svg/fig_agent_{episode}.svg', dpi=600,bbox_inches='tight',format='svg')
-    # plt.savefig(f'C:\\Users\\P\\CNR/jpg/fig_agent_{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
+    # plt.savefig(f'C:\\Users\\CNR/eps/fig_agent_{episode}.eps',dpi=600,bbox_inches='tight',format='eps')
+    # plt.savefig(f'C:\\Users\\CNR/pdf/fig_agent_{episode}.pdf', dpi=600,bbox_inches='tight',format='pdf')
+    # plt.savefig(f'C:\\Users\\CNR/svg/fig_agent_{episode}.svg', dpi=600,bbox_inches='tight',format='svg')
+    # plt.savefig(f'C:\\Users\\CNR/jpg/fig_agent_{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
     # plt.show()
     plt.clf()
     plt.cla()
     plt.close("all")
 
     print("====================================================")
+
