@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np                  # 数组
-import matplotlib.pyplot as plt     # 数据可视化的库
+import numpy as np                  
+import matplotlib.pyplot as plt     
 import random
 import time
 from arguments import Args
@@ -309,13 +309,14 @@ for episode in range(50):
         ax.plot(list(range(test_times)), total_values_exp[:, i] , marker='o', ls='--', label='Experts')
     plt.savefig(f'result_IWPI/{args.agent_num}-{args.opinions_end}-{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
     # episode = 1
-    # plt.savefig(f'C:\\User\\Desktop\\P\\CNR/eps/fig_agent_{episode}.eps',dpi=600,bbox_inches='tight',format='eps')
-    # plt.savefig(f'C:\\Users\\Desktop\\P\\CNR/pdf/fig_agent_{episode}.pdf', dpi=600,bbox_inches='tight',format='pdf')
-    # plt.savefig(f'C:\\Users\\Desktop\\P\\CNR/svg/fig_agent_{episode}.svg', dpi=600,bbox_inches='tight',format='svg')
-    # plt.savefig(f'C:\\Users\\Desktop\\P\\CNR/jpg/fig_agent_{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
+    # plt.savefig(f'C:\\User\\IWPI/eps/fig_agent_{episode}.eps',dpi=600,bbox_inches='tight',format='eps')
+    # plt.savefig(f'C:\\Users\\IWPI/pdf/fig_agent_{episode}.pdf', dpi=600,bbox_inches='tight',format='pdf')
+    # plt.savefig(f'C:\\Users\\IWPI/svg/fig_agent_{episode}.svg', dpi=600,bbox_inches='tight',format='svg')
+    # plt.savefig(f'C:\\Users\\IWPI/jpg/fig_agent_{episode}.jpg', dpi=600, bbox_inches='tight', format='jpg')
     # plt.show()
     plt.clf()
     plt.cla()
     plt.close("all")
     print("====================================================")
+
 # print("FLOPs:", FLOPs)
